@@ -32,11 +32,14 @@
   
       
   ### installation:
-  * Each burger in the waiting area also has a `Devour it!` button. When the user clicks it, the burger will move to the right side of the page.
+ 
+App will be installed via:
 
+. node js
+.
   
   ### usage:
-TBD
+ * Each burger in the waiting area also has a `Devour it!` button. When the user clicks it, the burger will move to the right side of the page.
 
     
 ### licenses:
@@ -55,11 +58,11 @@ Deployments like Herku serve as test for this project.
 jmc846@scarletmail.rutgers.edu
 
 ### gitHub profile:
-undefined
+[GitHub profile](https://github.com)
 
 ## Badges:
 [![License](https://poser.pugx.org/ali-irawan/xtra/license.svg)](https://poser.pugx.org/ali-irawan/xtra/license.svg)
     
 ### video:
-[Check out this video of the app for a run-through of how it works](https://youtu.be/msvdn95x9OM).
+[Check out this video of the app for a run-through of how it works](https://youtu.be/msvdn95x9OM)
 
