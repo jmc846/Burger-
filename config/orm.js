@@ -1,41 +1,90 @@
 // Import MySQL connection.
 const connection = require("../config/connection.js");
 
+const connectionQuery = require('util').promisify(connection.query.bind(connection));
+
 
 // Helper function for SQL syntax.
 
 //object for all our SQL statment functions
-var orm = {
+// var orm = {
 
 // * In the `orm.js` file, create the methods that will execute the necessary MySQL commands in the controllers. These are the methods you will need to use in order to retrieve and store data in your database.
 
-// * `selectAll()`
-selectAllBurgers: function(tableInput, ){
- let queryString = 'SELECT ?? FROM ??' + tableInput + '+';
-return connectionQuery(query, [colName, tableName])
-.then  (result => {
-console.log(results);
-
-})
-},
-// * `insertOne()`
-InsertOne: function (table, cols, vals, cb){
-    let queryString = 'SELECT ?? FROM ??' + tableInput + '+';
-    return connectionQuery(query, [colName, tableName])
-    .then  (result => {
-    console.log(results);
-    
-    })
+// ["?", "?", "?"].toString() => "?,?,?";
+function printQuestionMarks(num) {
+    var arr = [];
+  
+    for (var i = 0; i < num; i++) {
+      arr.push("?");
+    }
+  
+    return arr.toString();
+  }
+  
+  // Helper function to convert object key/value pairs to SQL syntax
+  function objToSql(ob) {
+    var arr = [];
+  
+    // loop through the keys and push the key/value as a string int arr
+    for (var key in ob) {
+      var value = ob[key];
+      // check to skip hidden properties
+      if (Object.hasOwnProperty.call(ob, key)) {
+        // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
+        if (typeof value === "string" && value.indexOf(" ") >= 0) {
+          value = "'" + value + "'";
+        }
+        
+        arr.push(key + "=" + value);
+      }
+    }
+  
+    // translate array of strings to a single comma-separated string
+    return arr.toString();
+  }
+  
+  // Object for all our SQL statement functions.
+  var orm = {
+    read: function(tableInput) {
+      var queryString = "SELECT * FROM ??;";
+      return connectionQuery(queryString, [tableInput]);
     },
-// * `updateOne()`
-updateOne: function (table, cols, vals, cb){
-    let queryString = 'SELECT ?? FROM ??' + tableInput + '+';
-    return connectionQuery(query, [colName, tableName])
-    .then  (result => {
-    console.log(results);
-    
-    })
+    create: function(table, cols, vals, cb) {
+      var queryString = "INSERT INTO ??";
+  
+      queryString += " (";
+      queryString += cols.toString();
+      queryString += ") ";
+      queryString += "VALUES (";
+      queryString += printQuestionMarks(vals.length);
+      queryString += ") ";
+  
+      console.log(queryString);
+  
+      return connectionQuery(queryString, [table, ...vals]);
     },
-};
-// * Export the ORM object in `module.exports`.
-module.exports = orm;
+  
+    // An example of objColVals would be {name: panther, sleepy: true}
+    update: function(table, objColVals, condition, cb) {
+      var queryString = "UPDATE " + table;
+  
+      queryString += " SET ";
+      queryString += objToSql(objColVals);
+      queryString += " WHERE ";
+      queryString += condition;
+  
+      console.log(queryString);
+      return connectionQuery(queryString);
+    },
+    delete: function(table, condition, cb) {
+      var queryString = "DELETE FROM " + table;
+      queryString += " WHERE ";
+      queryString += condition;
+  
+      return connectionQuery(queryString);
+    }
+  };
+  
+  // Export the orm object for the model (burger.js).
+  module.exports = orm;

@@ -37,4 +37,23 @@
   <button type="submit">Add Burger</button>
 </form>
 
+<h2 class="nameLabel" style="font-size: 2.5rem; color:rebeccapurple">Burgers that are not taken yet!</h2>
+  <div class="rowEatme">
+    {{#each burgers}}
+    {{#unless devoured}}
+    {{> burgers/burger-block devoured=false}}
+    {{/unless}}
+    {{/each}}
+    <div class="w-100"></div>
+  </div>
+  <h2 class="nameLabel"style="font-size: 2.5rem; color:rebeccapurple" >Burgers that are devoured!</h2>
+  <div class="rowEatme">
+    {{#each burgers}}
+    {{#if devoured}}
+    {{> burgers/burger-block devoured=true}}
+    {{/if}}
+    {{/each}}
+  </div>
+</div>
+
 
