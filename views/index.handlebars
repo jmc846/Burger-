@@ -4,18 +4,18 @@
 
 <ul>
   {{#each burger}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
+    {{#unless hungry}}
+      {{> burgers/burger-block hungry=true}}
     {{/unless}}
   {{/each}}
 </ul>
 
-<h2>Cats that are sleepy!</h2>
+<h2>BEST BURGERS IN TOWN!</h2>
 
 <ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
+  {{#each burger}}
+    {{#if hungry}}
+      {{> burgers/burger-block hungry=false}}
     {{/if}}
   {{/each}}
 </ul>
@@ -29,7 +29,7 @@
   </div>
 
   <div class="form-group">
-    <label for="sleepy">Hungry?</label><br>
+    <label for="hungry">Hungry?</label><br>
     <input type="radio" name="hungry" value="1" checked> Hungry!<br>
     <input type="radio" name="hungry" value="0"> Full from lunch
   </div>
