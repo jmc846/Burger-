@@ -1,5 +1,10 @@
-require('express');
+const express = require('express');
+
 const orm = require("./config/orm.js");
+
+
+
+// ORMs
 
 orm.selectAllBurgers('burger_name','burgers')
 
