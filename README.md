@@ -64,5 +64,5 @@ jmc846@scarletmail.rutgers.edu
 [![License](https://poser.pugx.org/ali-irawan/xtra/license.svg)](https://poser.pugx.org/ali-irawan/xtra/license.svg)
     
 ### video:
-[Check out this video of the app for a run-through of how it works](https://youtu.be/msvdn95x9OM)
+![Check out this video of the app for a run-through of how it works](https://media.giphy.com/media/dAuJbKtU9E2w5mgQzV/giphy.gif)
 
