@@ -81,6 +81,6 @@ function printQuestionMarks(num) {
       return connectionQuery(queryString);
     }
   };
-  
+  printQuestionMarks()
   // Export the orm object for the model (burger.js).
   module.exports = orm;
