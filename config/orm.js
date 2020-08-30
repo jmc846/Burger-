@@ -46,23 +46,19 @@ function printQuestionMarks(num) {
   
   // Object for all our SQL statement functions.
   var orm = {
-    read: function(tableInput) {
+   
+    read: function(tableInput,cb) {
+      console.log("ReaD ORM", tableInput)
       var queryString = "SELECT * FROM ??;";
-      return connectionQuery(queryString, [tableInput]);
-    },
-    create: function(table, cols, vals, cb) {
-      var queryString = "INSERT INTO ??";
-  
-      queryString += " (";
-      queryString += cols.toString();
-      queryString += ") ";
-      queryString += "VALUES (";
-      queryString += printQuestionMarks(vals.length);
-      queryString += ") ";
-  
-      console.log(queryString);
-  
-      return connectionQuery(queryString, [table, ...vals]);
+      console.log( connectionQuery(queryString, [tableInput]));
+     // return connectionQuery(queryString, [tableInput]);
+     connection.query(queryString, [tableInput], function (err, result) {
+      if (err) {
+          throw err;
+      }
+      console.log(result)
+      cb(result);
+  });
     },
   
     // An example of objColVals would be {name: panther, sleepy: true}
