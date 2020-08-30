@@ -7,7 +7,7 @@ const connectionQuery = require('util').promisify(connection.query.bind(connecti
 // Helper function for SQL syntax.
 
 //object for all our SQL statment functions
-// var orm = {
+
 
 // * In the `orm.js` file, create the methods that will execute the necessary MySQL commands in the controllers. These are the methods you will need to use in order to retrieve and store data in your database.
 

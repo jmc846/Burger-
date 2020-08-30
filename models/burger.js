@@ -26,11 +26,11 @@ var burgers = {
     //   });
     // }
 
-    read: () => orm.read("burgers"),
+    read: () => orm.read("burger"),
     // The variables cols and vals are arrays.
-    create: (cols, vals) => orm.create("burgers", cols, vals),
-    update: (objColVals, condition) => orm.update("burgers", objColVals, condition),
-    delete: condition => orm.delete("burgers", condition)
+create: (cols, vals) => orm.create("burger", cols, vals),
+update: (objColVals, condition) => orm.update("burger", objColVals, condition),
+delete: condition => orm.delete("burger", condition),
   };
 
 
