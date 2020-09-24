@@ -2,6 +2,11 @@ const express = require('express');
 
 var PORT = process.env.PORT || 8181;
 
+const connection = require("./config/connection");
+connection.connect(function (error) {
+  if(error)throw error
+  console.log("mysql connected");
+})
 var app = express();
 
 // Serve static content for the app from the "public" directory in the application directory.
