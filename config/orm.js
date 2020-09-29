@@ -34,7 +34,38 @@ function printQuestionMarks(num) {
     return arr.toString();
     }  
   // Object for all our SQL statement functions.
-  var orm = {   
+  var orm = { 
+    all: function(tableInput, cb) {
+      var queryString = "SELECT * FROM " + tableInput + ";";
+      connection.query(queryString, function(err, result) {
+        if (err) {
+          throw err;
+        }
+        cb(result);
+      });
+    },
+    // vals is an array of values that we want to save to cols
+    // cols are the columns we want to insert the values into
+    create: function(table, cols, vals, cb) {
+      var queryString = "INSERT INTO " + table;
+  
+      queryString += " (";
+      queryString += cols.toString();
+      queryString += ") ";
+      queryString += "VALUES (";
+      queryString += printQuestionMarks(vals.length);
+      queryString += ") ";
+  
+      console.log(queryString);
+  
+      connection.query(queryString, vals, function(err, result) {
+        if (err) {
+          throw err;
+        }
+        cb(result);
+      });
+    },
+      
     read: function(tableInput,cb) {
       console.log("ReaD ORM", tableInput)
       var queryString = "SELECT * FROM ??;";

@@ -2,23 +2,23 @@
 
 <h2>BEST BURGERS IN TOWN!</h2>
 
-<ul>
+{{!-- <ul>
   {{#each burger}}
     {{#unless hungry}}
       {{> burgers/burger-block hungry=true}}
     {{/unless}}
   {{/each}}
-</ul>
+</ul> --}}
 
-<h2>BEST BURGERS IN TOWN!</h2>
+<h2>Eat now!</h2>
 
-<ul>
+{{!-- <ul>
   {{#each burger}}
     {{#if hungry}}
       {{> burgers/burger-block hungry=false}}
     {{/if}}
   {{/each}}
-</ul>
+</ul> --}}
 
 <h2>ADD A BURGER</h2>
 <form class="create-form">
@@ -31,7 +31,7 @@
   <div class="form-group">
     <label for="hungry">Hungry?</label><br>
     <input type="radio" name="hungry" value="1" checked> Hungry!<br>
-    <input type="radio" name="hungry" value="0"> Full from lunch
+  
   </div>
 
   <button type="submit">Add Burger</button>
