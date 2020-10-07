@@ -68,10 +68,10 @@ function printQuestionMarks(num) {
       
     read: function(tableInput,cb) {
       console.log("ReaD ORM", tableInput)
-      var queryString = "SELECT * FROM ??;";
-      console.log( connectionQuery(queryString, [tableInput]));
+      var queryString = "SELECT * FROM " + tableInput + ";";
+     
      // return connectionQuery(queryString, [tableInput]);
-     connection.query(queryString, [tableInput], function (err, result) {
+     connection.query(queryString, function (err, result) {
       if (err) {
           throw err;
       }

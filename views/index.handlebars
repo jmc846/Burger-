@@ -28,18 +28,12 @@
     <input type="text" id="ca" name="name">
   </div>
 
-  <div class="form-group">
-    <label for="hungry">Hungry?</label><br>
-    <input type="radio" name="hungry" value="1" checked> Hungry!<br>
-  
-  </div>
-
   <button type="submit">Add Burger</button>
 </form>
 
 <h2 class="nameLabel" style="font-size: 2.5rem; color:rebeccapurple">Burgers that are not taken yet!</h2>
   <div class="rowEatme">
-    {{#each burgers}}
+    {{#each burger_data}}
     {{#unless devoured}}
     {{> burgers/burger-block devoured=false}}
     {{/unless}}
@@ -48,7 +42,7 @@
   </div>
   <h2 class="nameLabel"style="font-size: 2.5rem; color:rebeccapurple" >Burgers that are devoured!</h2>
   <div class="rowEatme">
-    {{#each burgers}}
+    {{#each burger_data}}
     {{#if devoured}}
     {{> burgers/burger-block devoured=true}}
     {{/if}}
