@@ -1,6 +1,6 @@
 // Import MySQL connection.
 
-const connection = require("../config/connection.js");
+const connection = require("./connection.js");
 const connectionQuery = require('util').promisify(connection.query.bind(connection));
 
 // Helper function for SQL syntax.
