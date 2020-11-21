@@ -1,11 +1,11 @@
-<h1 class="nameLabel" style="font-size: 2.5rem; color:rgb(228, 11, 11)">EAT DA BURGER</h1>
+<h1 class="nameLabel" style="font-size: 3.5rem; color:rgb(228, 11, 11)">EAT DA BURGER</h1>
 
 <h2 "nameLabel" style="font-size: 2.5rem; color:rgb(228, 11, 11)" >BEST BURGERS IN TOWN!</h2>
 <h2 "nameLabel" style="font-size: 2.5rem; color:rgb(228, 11, 11)">Eat now!</h2>
 <h2 "nameLabel" style="font-size: 2.5rem; color:rgb(228, 11, 11)">ADD A BURGER</h2>
 <form class="create-form">
 
-  <div class="form-group">
+  <div class="form-group" style="font-size: 2.5rem; color:rgb(228, 11, 11)>
     <label for="ca">Burger Name:</label>
     <input type="text" id="ca" name="name">
   </div>
@@ -13,8 +13,8 @@
   <button type="submit">Add Burger</button>
 </form>
 
-<h2 class="nameLabel" style="font-size: 2.5rem; color:rebeccapurple">Burgers that are not taken yet!</h2>
-  <div class="rowEatme">
+<h2 class="nameLabel" style="font-size: 3.5rem; color:rebeccapurple">Burgers that are not taken yet!</h2>
+  <div class="rowEatme" style="font-size: 2.5rem; color:rgb(228, 11, 11)>
     {{#each burger_data}}
     {{#unless devoured}}
     {{> burgers/burger-block devoured=false}}
@@ -22,8 +22,8 @@
     {{/each}}
     <div class="w-100"></div>
   </div>
-  <h2 class="nameLabel"style="font-size: 2.5rem; color:rebeccapurple" >Burgers that are devoured!</h2>
-  <div class="rowEatme">
+  <h2 class="nameLabel"style="font-size: 3.5rem; color:rebeccapurple" >Burgers that are devoured!</h2>
+  <div class="rowEatme" style="font-size: 2.5rem; color:rgb(228, 11, 11)>
     {{#each burger_data}}
     {{#if devoured}}
     {{> burgers/burger-block devoured=true}}
